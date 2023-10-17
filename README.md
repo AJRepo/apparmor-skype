@@ -13,7 +13,12 @@ the errors.
 
 This repository is for overriding the snap provided file and instructions.
 
-1. Replace /var/lib/snapd/apparmor/profiles/snap.skype.skype with this file
+1. Replace /var/lib/snapd/apparmor/profiles/snap.skype.skype with the same named on here. 
 2. cd /var/lib/snapd/apparmor/profiles/
 3. sudo apparmor_parser -r snap.skype.skype
 4. sudo systemctl restart apparmor.service
+
+Tested with Skype version 8.106.0.210 that was installed via snap. 
+Name                               Version                     Rev    Tracking       Publisher      Notes
+skype                              8.106.0.210                 305    latest/stable  skype✓         -
+
