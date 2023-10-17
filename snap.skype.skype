@@ -2757,4 +2757,7 @@ userns,
 deny ptrace (trace),
 deny capability sys_ptrace,
 
+  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
+  /sys/devices/*/*/*/*/*/online r,
+  /etc/issue r,
 }
