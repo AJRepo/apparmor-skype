@@ -13,9 +13,21 @@ the errors.
 
 This repository is for overriding the snap provided file and instructions.
 
-1. Replace /var/lib/snapd/apparmor/profiles/snap.skype.skype with the same named on here. 
+0. Backup your old apparmor profile in case something goes wrong
 
-   `sudo cp ./snap.skype.skype /var/lib/snapd/apparmor/profiles/`
+  `sudp cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
+
+1. Edit the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the following code
+   right above the closing curly bracket`}`
+```
+  /sys/devices/*/*/*/*/*/online r,
+  /sys/devices/*/*/*/power_supply/* r,
+  /etc/issue r,
+```
+
+See the file snap.skype.skype.add for the text to add.
+See the file snap.skype.skype.diff for a git diff
+
 2. Get into the directory where you put that apparmor file. 
 
    `cd /var/lib/snapd/apparmor/profiles/`

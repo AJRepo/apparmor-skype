@@ -1,0 +1,14 @@
+diff --git a/snap.skype.skype.add b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index ad5498d..2816d13 100644
+--- a/snap.skype.skype.add
++++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+@@ -2753,4 +2753,9 @@ dbus (send)
+ deny ptrace (trace),
+ deny capability sys_ptrace,
+ 
++  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
++  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
++  /sys/devices/*/*/*/*/*/online r,
++  /sys/devices/*/*/*/power_supply/* r,
++  /etc/issue r,
+ }
