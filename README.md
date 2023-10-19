@@ -23,7 +23,7 @@ This repository is for overriding the snap provided file and instructions.
 
   `sudo apparmor_parser -r snap.skype.skype`
 
-This should be sufficient. If not then also run
+This should be sufficient. If not then restart the apparmor service
 
 4. `sudo systemctl restart apparmor.service`
 
