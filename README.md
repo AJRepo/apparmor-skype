@@ -16,8 +16,12 @@ This repository is for overriding the snap provided file and instructions.
 1. Replace /var/lib/snapd/apparmor/profiles/snap.skype.skype with the same named on here. 
 
    `sudo cp ./snap.skype.skype /var/lib/snapd/apparmor/profiles/`
-2. `cd /var/lib/snapd/apparmor/profiles/`
-3. `sudo apparmor_parser -r snap.skype.skype`
+2. Get into the directory where you put that apparmor file. 
+
+   `cd /var/lib/snapd/apparmor/profiles/`
+3. Replace (-r flag) that profile 
+
+  `sudo apparmor_parser -r snap.skype.skype`
 
 This should be sufficient. If not then also run
 
