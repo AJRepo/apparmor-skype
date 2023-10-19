@@ -14,6 +14,7 @@ the errors.
 This repository is for overriding the snap provided file and instructions.
 
 1. Replace /var/lib/snapd/apparmor/profiles/snap.skype.skype with the same named on here. 
+
    `sudo cp ./snap.skype.skype /var/lib/snapd/apparmor/profiles/`
 2. `cd /var/lib/snapd/apparmor/profiles/`
 3. `sudo apparmor_parser -r snap.skype.skype`
