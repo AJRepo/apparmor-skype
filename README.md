@@ -13,6 +13,8 @@ the errors.
 
 This repository is for overriding the snap provided file and instructions.
 
+# Installation 
+
 0. Backup your old apparmor profile in case something goes wrong
 
   `sudp cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
@@ -46,3 +48,29 @@ Name                               Version                     Rev    Tracking  
 skype                              8.106.0.210                 305    latest/stable  skype✓         -
 skype                              8.106.0.212                 306    latest/stable  skype✓         -
 ```
+
+# Recovery
+If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
+then you can get back with your old data with the following
+
+```
+sudo snap save skype
+```
+You'll get something like
+```
+Set  Snap   Age    Version      Rev  Size    Notes
+9    skype  7.58s  8.106.0.212  306  56.5MB  -
+```
+Note that Set number you get (in this case it is = 9)
+
+```
+sudo snap remove skype
+sudo snap install skype
+sudo snap restore XXXX
+  where XXXX is the number you saw given with the "save" command
+```
+
+Technically `snap remove skype` is supposed to create a save point also, but I prefer
+to create one manually just to be sure. 
+
+you can get a list of your snapshots with `snap saved`
