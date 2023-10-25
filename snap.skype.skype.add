@@ -2,5 +2,7 @@
   #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
   /sys/devices/*/*/*/*/*/online r,
   /sys/devices/*/*/*/power_supply/* r,
+  /sys/devices/*/net/*/speed r,
+  /sys/devices/*/*/net/*/speed r,
   /etc/issue r,
 
