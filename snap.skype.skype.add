@@ -1,3 +1,4 @@
+  #The following lines added from github.com/AJRepo/apparmor-skype
   #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
   #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
   /sys/devices/*/*/*/*/*/online r,

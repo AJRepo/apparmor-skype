@@ -41,12 +41,14 @@ This should be sufficient. If not then restart the apparmor service
 
 4. `sudo systemctl restart apparmor.service`
 
-Tested with Skype versions 8.106.0.210, 8.106.0.212 from `snap list skype`
+Tested with Skype versions (from `snap list skype`)
 
 ```
-Name                               Version                     Rev    Tracking       Publisher      Notes
-skype                              8.106.0.210                 305    latest/stable  skype✓         -
-skype                              8.106.0.212                 306    latest/stable  skype✓         -
+Name    Version        Rev    Tracking       Publisher      Notes
+skype   8.106.0.210    305    latest/stable  skype✓         -
+skype   8.106.0.212    306    latest/stable  skype✓         -
+skype   8.107.0.215    309    latest/stable  skype✓         -
+
 ```
 
 # Recovery
