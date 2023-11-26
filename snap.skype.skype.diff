@@ -1,20 +1,20 @@
-diff --git a/snap.skype.skype.add b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index 33c529a..33dafee 100644
---- a/snap.skype.skype.add
+diff --git a/tmp/snap.skype.skype b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index 43f6bb8..0699dfc 100644
+--- a/tmp/snap.skype.skype
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2756,5 +2756,14 @@ userns,
- # dangerous access frivolously.
+@@ -2753,4 +2753,14 @@ dbus (send)
  deny ptrace (trace),
  deny capability sys_ptrace,
-+  #
+ 
 +  #The following lines added from github.com/AJRepo/apparmor-skype
 +  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
 +  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
++  #/sys/devices/pci0000:00/0000:00:1c.6/0000:5c:00.0/net/wlo1/speed
 +  /sys/devices/*/*/*/*/*/online r,
 +  /sys/devices/*/*/*/power_supply/* r,
 +  /sys/devices/*/net/*/speed r,
 +  /sys/devices/*/*/net/*/speed r,
++  /sys/devices/*/*/*/net/*/speed r,
 +  /etc/issue r,
- 
  }
 

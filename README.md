@@ -19,12 +19,13 @@ This repository is for overriding the snap provided file and instructions.
 
   `sudp cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
 
-1. Edit the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the following code
-   right above the closing curly bracket`}`
+1. Edit the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the code from snap.skype.skype.add
+   right above the closing curly bracket`}` e.g.
 ```
   /sys/devices/*/*/*/*/*/online r,
   /sys/devices/*/*/*/power_supply/* r,
   /etc/issue r,
+  ...
 ```
 
 See the file snap.skype.skype.add for the text to add.
@@ -35,7 +36,7 @@ See the file snap.skype.skype.diff for a git diff
    `cd /var/lib/snapd/apparmor/profiles/`
 3. Replace (-r flag) that profile 
 
-  `sudo apparmor_parser -r snap.skype.skype`
+  `sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.skype.skype`
 
 This should be sufficient. If not then restart the apparmor service
 
@@ -48,6 +49,7 @@ Name    Version        Rev    Tracking       Publisher      Notes
 skype   8.106.0.210    305    latest/stable  skype✓         -
 skype   8.106.0.212    306    latest/stable  skype✓         -
 skype   8.107.0.215    309    latest/stable  skype✓         -
+skype   8.108.0.205    311    latest/stable  skype✓         -
 
 ```
 
