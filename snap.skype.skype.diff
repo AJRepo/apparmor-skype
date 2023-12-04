@@ -1,8 +1,8 @@
 diff --git a/tmp/snap.skype.skype b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index 43f6bb8..0699dfc 100644
+index 14812d0..a523194 100644
 --- a/tmp/snap.skype.skype
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2753,4 +2753,14 @@ dbus (send)
+@@ -2753,4 +2753,16 @@ dbus (send)
  deny ptrace (trace),
  deny capability sys_ptrace,
  
@@ -16,5 +16,6 @@ index 43f6bb8..0699dfc 100644
 +  /sys/devices/*/*/net/*/speed r,
 +  /sys/devices/*/*/*/net/*/speed r,
 +  /etc/issue r,
++
++
  }
-
