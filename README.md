@@ -50,6 +50,8 @@ skype   8.106.0.210    305    latest/stable  skype✓         -
 skype   8.106.0.212    306    latest/stable  skype✓         -
 skype   8.107.0.215    309    latest/stable  skype✓         -
 skype   8.108.0.205    311    latest/stable  skype✓         -
+skype   8.110.0.211    317    latest/stable  skype✓         -
+
 
 ```
 
