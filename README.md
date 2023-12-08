@@ -17,7 +17,7 @@ This repository is for overriding the snap provided file and instructions.
 
 0. Backup your old apparmor profile in case something goes wrong
 
-  `sudp cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
+  `sudo cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
 
 1. Edit the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the code from snap.skype.skype.add
    right above the closing curly bracket`}` e.g.
