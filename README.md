@@ -31,16 +31,13 @@ This repository is for overriding the snap provided file and instructions.
 See the file snap.skype.skype.add for the text to add.
 See the file snap.skype.skype.diff for a git diff
 
-2. Get into the directory where you put that apparmor file. 
-
-   `cd /var/lib/snapd/apparmor/profiles/`
-3. Replace (-r flag) that profile 
+2. Use apparmor_parser to replace (-r flag) that profile 
 
   `sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.skype.skype`
 
 This should be sufficient. If not then restart the apparmor service
 
-4. `sudo systemctl restart apparmor.service`
+3. `sudo systemctl restart apparmor.service`
 
 Tested with Skype versions (from `snap list skype`)
 
