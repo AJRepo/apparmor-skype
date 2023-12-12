@@ -2,7 +2,6 @@
 
 SKYPE_PROFILE="/var/lib/snapd/apparmor/profiles/snap.skype.skype"
 BACKUP_DIR="./backup/"
-ADD_FILE="snap.skype.skype.add"
 
 if [[ ! -d $BACKUP_DIR ]]; then
   echo "Making Backup Dir"
@@ -32,4 +31,5 @@ if ! sudo apparmor_parser -r "$SKYPE_PROFILE"; then
 fi
 
 echo "Successfully applied patch and updated apparmor"
+#git diff "$BACKUP_DIR/snap.skype.skype.$NOW" "$SKYPE_PROFILE"
 exit 0
