@@ -63,6 +63,7 @@ alpha status.
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
 then you can get back with your old data with the following
 
+1. Create a snapshot of your existing data (includes your skype username, chats, etc.)
 ```
 sudo snap save skype
 ```
@@ -71,7 +72,9 @@ You'll get something like
 Set  Snap   Age    Version      Rev  Size    Notes
 9    skype  7.58s  8.106.0.212  306  56.5MB  -
 ```
-Note that Set number you get (in this case it is = 9)
+Note that `Set` number you get above (in this case it is = 9)
+
+2. Remove skype without any other flags and restore the snapshot you made. 
 
 ```
 sudo snap remove skype
@@ -83,4 +86,12 @@ sudo snap restore XXXX
 Technically `snap remove skype` is supposed to create a save point also, but I prefer
 to create one manually just to be sure. 
 
-you can get a list of your snapshots with `snap saved`
+3. (Optional) `forget` the snapshot you created.
+   
+you can get a list of your snapshots with `snap saved` and in the above case (Set=9)
+you can delete it with 
+
+`snap forget 9`
+
+
+
