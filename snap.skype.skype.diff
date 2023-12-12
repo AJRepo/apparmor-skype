@@ -1,18 +1,19 @@
-diff --git a/var/lib/snapd/apparmor/profiles/snap.skype.skype b/tmp/snap.skype.skype
-index e14d608..bb8c9f9 100644
---- a/var/lib/snapd/apparmor/profiles/snap.skype.skype
-+++ b/tmp/snap.skype.skype
-@@ -2753,13 +2753,4 @@ dbus (send)
+diff --git a/backup/snap.skype.skype.20231212083601 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index c54458e..2e80a19 100644
+--- a/backup/snap.skype.skype.20231212083601
++++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+@@ -2757,4 +2757,14 @@ userns,
  deny ptrace (trace),
  deny capability sys_ptrace,
  
--  #The following lines added from github.com/AJRepo/apparmor-skype
--  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
--  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
--  /sys/devices/*/*/*/*/*/online r,
--  /sys/devices/*/*/*/power_supply/* r,
--  /sys/devices/*/net/*/speed r,
--  /sys/devices/*/*/net/*/speed r,
--  /sys/devices/*/*/*/net/*/speed r,
--  /etc/issue r,
++  #The following lines added from github.com/AJRepo/apparmor-skype
++  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
++  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
++  /sys/devices/*/*/*/*/*/online r,
++  /sys/devices/*/*/*/power_supply/* r,
++  /sys/devices/*/net/*/speed r,
++  /sys/devices/*/*/net/*/speed r,
++  /sys/devices/*/*/*/net/*/speed r,
++  /etc/issue r,
++
  }

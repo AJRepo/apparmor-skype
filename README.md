@@ -19,7 +19,7 @@ This repository is for overriding the snap provided file and instructions.
 
   `sudo cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
 
-1. Edit the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the code from snap.skype.skype.add
+1. Update the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the code from snap.skype.skype.add
    right above the closing curly bracket`}` e.g.
 ```
   /sys/devices/*/*/*/*/*/online r,
@@ -30,6 +30,9 @@ This repository is for overriding the snap provided file and instructions.
 
 See the file snap.skype.skype.add for the text to add.
 See the file snap.skype.skype.diff for a git diff
+
+You can update with the command: 
+`patch /var/lib/snapd/apparmor/profiles/snap.skype.skype snap.skype.skype.diff`
 
 2. Use apparmor_parser to replace (-r flag) that profile 
 
@@ -42,15 +45,19 @@ This should be sufficient. If not then restart the apparmor service
 Tested with Skype versions (from `snap list skype`)
 
 ```
-Name    Version        Rev    Tracking       Publisher      Notes
-skype   8.106.0.210    305    latest/stable  skype✓         -
-skype   8.106.0.212    306    latest/stable  skype✓         -
-skype   8.107.0.215    309    latest/stable  skype✓         -
-skype   8.108.0.205    311    latest/stable  skype✓         -
-skype   8.110.0.211    317    latest/stable  skype✓         -
+Name    Version      Rev  Tracking       Publisher    Notes
+skype   8.106.0.210  305  latest/stable  skype✓       -
+skype   8.106.0.212  306  latest/stable  skype✓       -
+skype   8.107.0.215  309  latest/stable  skype✓       -
+skype   8.108.0.205  311  latest/stable  skype✓       -
+skype   8.110.0.211  317  latest/stable  skype✓       -
+skype   8.110.0.215  319  latest/stable  skype✓       -
 
 
 ```
+
+There is a script to to all steps above named `update_profile.sh`. This script should be considered in 
+alpha status. 
 
 # Recovery
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
