@@ -45,19 +45,21 @@ This should be sufficient. If not then restart the apparmor service
 Tested with Skype versions (from `snap list skype`)
 
 ```
-Name    Version      Rev  Tracking       Publisher    Notes
-skype   8.106.0.210  305  latest/stable  skype✓       -
-skype   8.106.0.212  306  latest/stable  skype✓       -
-skype   8.107.0.215  309  latest/stable  skype✓       -
-skype   8.108.0.205  311  latest/stable  skype✓       -
-skype   8.110.0.211  317  latest/stable  skype✓       -
-skype   8.110.0.215  319  latest/stable  skype✓       -
+Name   Version      Rev  Tracking       Publisher   Notes
+skype  8.106.0.210  305  latest/stable  skype✓      -
+skype  8.106.0.212  306  latest/stable  skype✓      -
+skype  8.107.0.215  309  latest/stable  skype✓      -
+skype  8.108.0.205  311  latest/stable  skype✓      -
+skype  8.110.0.211  317  latest/stable  skype✓      -
+skype  8.110.0.215  319  latest/stable  skype✓      -
+skype  8.110.0.218  320  latest/stable  skype✓      -
+
 
 
 ```
 
-There is a script to to all steps above named `update_profile.sh`. This script should be considered in 
-alpha status. 
+There is a script to do steps 0-3 above named `update_profile.sh`. This script should be considered in 
+beta status. 
 
 # Recovery
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
@@ -92,6 +94,3 @@ you can get a list of your snapshots with `snap saved` and in the above case (Se
 you can delete it with 
 
 `snap forget 9`
-
-
-
