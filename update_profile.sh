@@ -20,16 +20,16 @@ fi
 echo "Patching $SKYPE_PROFILE"
 
 if ! sudo patch "$SKYPE_PROFILE" snap.skype.skype.diff; then
-  echo "ERROR: Can not patch. Please do so manually, then run apparmor_apply"
+  echo "ERROR: Can not patch. Please do so manually, then run apparmor_parser"
   exit 1
 fi
 
 echo "Updating apparmor_parser"
 if ! sudo apparmor_parser -r "$SKYPE_PROFILE"; then
-  echo "ERROR: Can not apply updates. Exiting"
+  echo "ERROR: apparmor_parser did not run successfully. Exiting"
   exit 1
 fi
 
-echo "Successfully applied patch and updated apparmor"
-#git diff "$BACKUP_DIR/snap.skype.skype.$NOW" "$SKYPE_PROFILE"
+echo "Successfully applied patch and updated apparmor. To see changes run:"
+echo "git diff $BACKUP_DIR/snap.skype.skype.$NOW $SKYPE_PROFILE"
 exit 0
