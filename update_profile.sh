@@ -10,6 +10,11 @@ fi
 
 NOW=$(date +%Y%m%d%H%M%S)
 
+if grep -q AJRepo "$SKYPE_PROFILE"; then
+  echo "Checking existing profile and found already applied, exiting."
+  exit 1
+fi
+
 echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR"
 
 if ! cp "$SKYPE_PROFILE" "$BACKUP_DIR/snap.skype.skype.$NOW"; then
