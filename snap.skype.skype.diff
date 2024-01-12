@@ -1,8 +1,8 @@
-diff --git a/backup/snap.skype.skype.20231212083601 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index c54458e..2e80a19 100644
---- a/backup/snap.skype.skype.20231212083601
+diff --git a/./backup//snap.skype.skype.20240112091034 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index b549dfa..a2f8cae 100644
+--- a/./backup//snap.skype.skype.20240112091034
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2757,4 +2757,14 @@ userns,
+@@ -2782,4 +2782,15 @@ dbus (send, receive)
  deny ptrace (trace),
  deny capability sys_ptrace,
  
@@ -11,6 +11,7 @@ index c54458e..2e80a19 100644
 +  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/capacity r,
 +  /sys/devices/*/*/*/*/*/online r,
 +  /sys/devices/*/*/*/power_supply/* r,
++  /sys/devices/*/*/power_supply/*/* r,
 +  /sys/devices/*/net/*/speed r,
 +  /sys/devices/*/*/net/*/speed r,
 +  /sys/devices/*/*/*/net/*/speed r,
