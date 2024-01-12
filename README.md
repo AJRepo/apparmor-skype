@@ -54,12 +54,15 @@ skype  8.110.0.211  317  latest/stable  skype✓      -
 skype  8.110.0.215  319  latest/stable  skype✓      -
 skype  8.110.0.218  320  latest/stable  skype✓      -
 
-
-
 ```
 
-There is a script to do steps 0-3 above named `update_profile.sh`. This script should be considered in 
-beta status. 
+There is a script to do steps 0-3 above named `update_with_diff.sh`.  This uses the 
+.diff file to do the update as above. There is also a script `update_with_add.sh`. This 
+looks for a '}' as the last line of the skype profile file and then replaces it with the 
+contents of the .add file. Eventually perhaps these two scripts will be combined
+to reduce duplication
+
+Both of these scripts should be considered in beta status. 
 
 # Recovery
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
