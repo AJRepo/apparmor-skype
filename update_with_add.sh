@@ -16,7 +16,7 @@ fi
 
 NOW=$(date +%Y%m%d%H%M%S)
 
-echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR"
+echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR/snap.skype.skype.$NOW"
 
 if ! cp "$SKYPE_PROFILE" "$BACKUP_DIR/snap.skype.skype.$NOW"; then
   echo "ERROR: cannot backup $SKYPE_PROFILE"
@@ -27,7 +27,8 @@ LAST_LINE=$(tail -1 $SKYPE_PROFILE)
 
 echo "This does not check if this has already been run once."
 echo "Use at your own risk or check $SKYPE_PROFILE first"
-read -rp "Press Ctrl-C to stop"
+echo ""
+read -rp "Press Ctrl-C to stop. Press any other key to continue .... "
 
 if [[ $LAST_LINE != "}" ]]; then 
   echo "Last line is not '}', exiting"
