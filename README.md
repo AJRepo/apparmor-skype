@@ -58,17 +58,18 @@ skype  8.111.0.607  323  latest/stable  skype✓     -
 ```
 # Bash Scripts for Installation
 
-There is a script to do steps 0-3 above named `update_with_diff.sh`.  This uses the file
+There are two scripts to do steps 0-3 above.
+
+* The first is named `update_with_diff.sh`.  This uses the file
 `snap.skype.skype.diff` to do the update as above.
 
-There is also a script `update_with_add.sh`. This 
+* The second is named `update_with_add.sh`. This 
 looks for a '}' as the last line of the skype profile file and then replaces it with the 
-contents of the file `snap.skype.skype.add` and then add back the '}' as the last line
-of the skype profile file. 
+contents of the file `snap.skype.skype.add` + '}'
 
-Perhaps these two scripts will be combined to reduce duplication at some point in the future. 
+At some point these two scripts might be merged or one of them deprecated. 
 
-Both of these scripts should be considered in beta status. 
+Both of these scripts should be considered to be in beta status. 
 
 # Recovery
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
