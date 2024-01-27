@@ -53,6 +53,7 @@ skype  8.108.0.205  311  latest/stable  skype✓      -
 skype  8.110.0.211  317  latest/stable  skype✓      -
 skype  8.110.0.215  319  latest/stable  skype✓      -
 skype  8.110.0.218  320  latest/stable  skype✓      -
+skype  8.111.0.607  323  latest/stable  skype✓     -
 
 ```
 # Bash Scripts for Installation
