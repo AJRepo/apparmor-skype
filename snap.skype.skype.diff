@@ -1,8 +1,8 @@
-diff --git a/./backup//snap.skype.skype.20240112091034 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index b549dfa..a2f8cae 100644
---- a/./backup//snap.skype.skype.20240112091034
+diff --git a/./backup//snap.skype.skype.20240127070604 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index 5316894..c2375e2 100644
+--- a/./backup//snap.skype.skype.20240127070604
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2782,4 +2782,15 @@ dbus (send, receive)
+@@ -2757,4 +2757,15 @@ userns,
  deny ptrace (trace),
  deny capability sys_ptrace,
  

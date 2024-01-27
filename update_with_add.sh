@@ -16,6 +16,18 @@ fi
 
 NOW=$(date +%Y%m%d%H%M%S)
 
+#Check if this has already been applied once
+echo "Checking existing profile $SKYPE_PROFILE...."
+if grep -q AJRepo "$SKYPE_PROFILE"; then
+  echo "    found AJRepo code already applied, exiting."
+  exit 1
+else
+  echo "    found skype profile in default state"
+  echo ""
+  echo "About to make backup and then apply update"
+  read -rp "Press Ctrl-C to stop. Press any other key to continue .... "
+fi
+
 echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR/snap.skype.skype.$NOW"
 
 if ! cp "$SKYPE_PROFILE" "$BACKUP_DIR/snap.skype.skype.$NOW"; then
@@ -25,10 +37,6 @@ fi
 
 LAST_LINE=$(tail -1 $SKYPE_PROFILE)
 
-echo "This does not check if this has already been run once."
-echo "Use at your own risk or check $SKYPE_PROFILE first"
-echo ""
-read -rp "Press Ctrl-C to stop. Press any other key to continue .... "
 
 if [[ $LAST_LINE != "}" ]]; then 
   echo "Last line is not '}', exiting"

@@ -10,9 +10,16 @@ fi
 
 NOW=$(date +%Y%m%d%H%M%S)
 
+#Check if this has already been applied once
+echo "Checking existing profile $SKYPE_PROFILE...."
 if grep -q AJRepo "$SKYPE_PROFILE"; then
-  echo "Checking existing profile and found already applied, exiting."
+  echo "    found AJRepo code already applied, exiting."
   exit 1
+else
+  echo "    found skype profile in default state"
+  echo ""
+  echo "About to make backup and then apply update"
+  read -rp "Press Ctrl-C to stop. Press any other key to continue .... "
 fi
 
 echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR"
