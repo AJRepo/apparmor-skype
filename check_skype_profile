@@ -1,0 +1,36 @@
+#!/bin/bash
+# Copyright 2024 AJRepo
+#
+#  If attempting to run this from cron, note that notify-send requires
+#  one to call this script with env variables for DISPLAY=:0,  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/<USER_ID>/bus
+#   Example Cron.d file:
+#     15 * * * * USER_NAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/USER_ID/bus /path/to/check_skype_profile
+#
+# If you are calling from cron.hourly as root then you have to change all notify-send calls to use sudo as
+#     sudo -u USER_NAME DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/USER_ID/bus DISPLAY=:0 notify-send "test"
+# 
+# If you have multi users and want a generic script for anyone who logs in then use systemd
+#   (e.g. /etc/systemd/system/foo.service /etc/systemd/system/foo.timer ) 
+# 
+
+SKYPE_PROFILE="/var/lib/snapd/apparmor/profiles/snap.skype.skype"
+
+NOTIFY=$(which notify-send)
+if [ -x "$NOTIFY" ] ; then
+  NOTIFY="$NOTIFY --app-name='apparmor-skype' --urgency=critical"
+elif which wall; then
+  NOTIFY=$(which wall)
+else
+  echo "ERROR: cannot notify users"
+  exit 1
+fi
+
+#If the text "AJRepo" isn't in $SKYPE_PROFILE then skype has overwritten our fix
+if ! grep -q "AJRepo" "$SKYPE_PROFILE"; then
+  $NOTIFY "skype apparmor profile check" "See apparmor-check: skype profile needs to be re-modified"
+fi
+
+#For testing, uncomment the following. Good to test if $NOTIFY is working
+#if grep -q "AJRepo" "$SKYPE_PROFILE"; then
+#  $NOTIFY "skype apparmor profile check" "all ok no changes needed"
+#fi

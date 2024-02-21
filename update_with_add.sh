@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright 2024 AJRepo
 
 SKYPE_PROFILE="/var/lib/snapd/apparmor/profiles/snap.skype.skype"
 SKYPE_TMP="/tmp/skype.tmp"
