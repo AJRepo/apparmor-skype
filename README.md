@@ -111,5 +111,13 @@ you can delete it with
 See the file `check_skype_profile` which is a bash script to see if a new version of skype has overwritten
 the apparmor code 
 
+When adding it to your cron, make sure you set the path correctly. Example: 
+#Run every hour at 14 minutes past the hour
+#Replace MY_USER_NAME and MY_USER_ID as appropriate
+14 * * * * MY_USER_NAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/MY_USER_ID/bus /PATH/TO/apparmor-skype/check_skype_profile
+
+
+
+
 Copyright AJRepo 2023
 (Afan Ottenheimer)
