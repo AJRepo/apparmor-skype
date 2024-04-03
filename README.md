@@ -58,6 +58,7 @@ skype  8.113.0.210  330  latest/stable  skype✓     -
 skype  8.114.0.214  333  latest/stable  skype✓     -
 skype  8.115.0.215  336  latest/stable  skype✓     -
 skype  8.115.0.217  337  latest/stable  skype✓     -
+skype  8.116.0.213  340  latest/stable  skype✓     -
 
 
 
