@@ -26,7 +26,7 @@ else
   echo "    found skype profile in default state"
   echo ""
   echo "About to make backup and then apply update"
-  read -rp "Press Ctrl-C to stop. Press any other key to continue .... "
+  read -rp "Press Ctrl-C to stop. Press 'enter' key to continue .... "
 fi
 
 echo "Backing up $SKYPE_PROFILE to $BACKUP_DIR/snap.skype.skype.$NOW"
