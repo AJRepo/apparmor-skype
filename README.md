@@ -60,6 +60,8 @@ skype  8.115.0.215  336  latest/stable  skype✓     -
 skype  8.115.0.217  337  latest/stable  skype✓     -
 skype  8.116.0.213  340  latest/stable  skype✓     -
 skype  8.117.0.202  342  latest/stable  skype✓     -
+skype  8.118.0.205  345  latest/stable  skype✓     -
+
 
 
 
