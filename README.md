@@ -17,54 +17,36 @@ This repository is for overriding the snap provided file and instructions.
 
 0. Backup your old apparmor profile in case something goes wrong
 
-  `sudo cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
+      `sudo cp  /var/lib/snapd/apparmor/profiles/snap.skype.skype /tmp/`
 
 1. Update the file `/var/lib/snapd/apparmor/profiles/snap.skype.skype` and put the code from snap.skype.skype.add
    right above the closing curly bracket`}` e.g.
-```
-  /sys/devices/*/*/*/*/*/online r,
-  /sys/devices/*/*/*/power_supply/* r,
-  /etc/issue r,
-  ...
-```
+   ```
+    /sys/devices/*/*/*/*/*/online r,
+    /sys/devices/*/*/*/power_supply/* r,
+    /etc/issue r,
+    ...
+   ```
+   See the file snap.skype.skype.add for the text to add.
+   See the file snap.skype.skype.diff for a git diff
 
-See the file snap.skype.skype.add for the text to add.
-See the file snap.skype.skype.diff for a git diff
-
-You can update with the command: 
-`patch /var/lib/snapd/apparmor/profiles/snap.skype.skype snap.skype.skype.diff`
+   You can update with the command: 
+       `patch /var/lib/snapd/apparmor/profiles/snap.skype.skype snap.skype.skype.diff`
 
 2. Use apparmor_parser to replace (-r flag) that profile 
 
-  `sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.skype.skype`
+     `sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.skype.skype`
 
-This should be sufficient. If not then restart the apparmor service
+    This should be sufficient. If not then restart the apparmor service (step 3 below)
 
-3. `sudo systemctl restart apparmor.service`
+3. (optional) Restart apparmor
 
-Tested with Skype versions (from `snap list skype`)
+      `sudo systemctl restart apparmor.service`
 
-```
-Name   Version      Rev  Tracking       Publisher  Notes
-skype  8.106.0.210  305  latest/stable  skype✓     -
-skype  8.106.0.212  306  latest/stable  skype✓     -
-skype  8.107.0.215  309  latest/stable  skype✓     -
-skype  8.108.0.205  311  latest/stable  skype✓     -
-skype  8.110.0.211  317  latest/stable  skype✓     -
-skype  8.110.0.215  319  latest/stable  skype✓     -
-skype  8.110.0.218  320  latest/stable  skype✓     -
-skype  8.111.0.607  323  latest/stable  skype✓     -
-skype  8.113.0.210  330  latest/stable  skype✓     -
-skype  8.114.0.214  333  latest/stable  skype✓     -
-skype  8.115.0.215  336  latest/stable  skype✓     -
-skype  8.115.0.217  337  latest/stable  skype✓     -
-skype  8.116.0.213  340  latest/stable  skype✓     -
-skype  8.117.0.202  342  latest/stable  skype✓     -
-skype  8.118.0.205  345  latest/stable  skype✓     -
-skype  8.119.0.201  348  latest/stable  skype✓     -
-skype  8.124.0.204  351  latest/stable  skype✓     -
-skype  8.125.0.201  353  latest/stable  skype✓     -
-```
+4. (optional) Setup crontab monitoring for snap to undo your changes when it updates skype.
+
+   See "Monitoring for Skype Profile Changes" below.
+
 
 # Bash Scripts for Installation
 
@@ -134,7 +116,35 @@ When adding it to your cron, make sure you set the path correctly. Example:
 #Run every hour at 14 minutes past the hour
 #Replace MY_USER_NAME and MY_USER_ID as appropriate
 14 * * * * MY_USER_NAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/MY_USER_ID/bus /PATH/TO/apparmor-skype/check_skype_profile
+
 ```
+
+# Tests
+
+Tested with Skype versions (from `snap list skype`)
+
+```
+Name   Version      Rev  Tracking       Publisher  Notes
+skype  8.106.0.210  305  latest/stable  skype✓     -
+skype  8.106.0.212  306  latest/stable  skype✓     -
+skype  8.107.0.215  309  latest/stable  skype✓     -
+skype  8.108.0.205  311  latest/stable  skype✓     -
+skype  8.110.0.211  317  latest/stable  skype✓     -
+skype  8.110.0.215  319  latest/stable  skype✓     -
+skype  8.110.0.218  320  latest/stable  skype✓     -
+skype  8.111.0.607  323  latest/stable  skype✓     -
+skype  8.113.0.210  330  latest/stable  skype✓     -
+skype  8.114.0.214  333  latest/stable  skype✓     -
+skype  8.115.0.215  336  latest/stable  skype✓     -
+skype  8.115.0.217  337  latest/stable  skype✓     -
+skype  8.116.0.213  340  latest/stable  skype✓     -
+skype  8.117.0.202  342  latest/stable  skype✓     -
+skype  8.118.0.205  345  latest/stable  skype✓     -
+skype  8.119.0.201  348  latest/stable  skype✓     -
+skype  8.124.0.204  351  latest/stable  skype✓     -
+skype  8.125.0.201  353  latest/stable  skype✓     -
+```
+
 
 Copyright AJRepo 2023
 (Afan Ottenheimer)
