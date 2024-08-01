@@ -63,6 +63,7 @@ skype  8.117.0.202  342  latest/stable  skype✓     -
 skype  8.118.0.205  345  latest/stable  skype✓     -
 skype  8.119.0.201  348  latest/stable  skype✓     -
 skype  8.124.0.204  351  latest/stable  skype✓     -
+skype  8.125.0.201  353  latest/stable  skype✓     -
 ```
 
 # Bash Scripts for Installation
