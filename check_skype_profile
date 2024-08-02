@@ -16,6 +16,19 @@
 SKYPE_PROFILE="/var/lib/snapd/apparmor/profiles/snap.skype.skype"
 
 NOTIFY=$(which notify-send)
+DEBUG=0
+
+if [[ $1 == "-d" ]]; then
+  DEBUG=1
+fi
+
+if [[ $1 == "--help" ]]; then
+  echo "Usage: $0 [-d] [--help]"
+  echo "	-d (debug mode)"
+  echo "	--help (this message)"
+  exit 0
+fi
+
 if [ -x "$NOTIFY" ] ; then
   NOTIFY="$NOTIFY --app-name='apparmor-skype' --urgency=critical"
 elif which wall; then
@@ -30,7 +43,8 @@ if ! grep -q "AJRepo" "$SKYPE_PROFILE"; then
   $NOTIFY "skype apparmor profile check" "See apparmor-check: skype profile needs to be re-modified"
 fi
 
-#For testing, uncomment the following. Good to test if $NOTIFY is working
-#if grep -q "AJRepo" "$SKYPE_PROFILE"; then
-#  $NOTIFY "skype apparmor profile check" "all ok no changes needed"
-#fi
+if [[ $DEBUG == "1" ]]; then
+  if grep -q "AJRepo" "$SKYPE_PROFILE"; then
+    $NOTIFY "skype apparmor profile check" "all ok no changes needed"
+  fi
+fi
