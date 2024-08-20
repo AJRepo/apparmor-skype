@@ -61,7 +61,7 @@ contents of the file `snap.skype.skype.add` + '}'
 
 At some point these two scripts might be merged or one of them deprecated. 
 
-Both of these scripts should be considered to be in beta status. 
+Both of these scripts should be considered to be in RC-1 status. 
 
 # Recovery
 If you've done something wrong with /var/lib/snapd/apparmor/profiles (e.g. didn't backup first and now skype won't start)
