@@ -145,6 +145,7 @@ skype  8.124.0.204  351  latest/stable  skype✓     -
 skype  8.125.0.201  353  latest/stable  skype✓     -
 skype  8.126.0.208  357  latest/stable  skype✓     -
 skype  8.127.0.200  359  latest/stable  skype✓     -
+skype  8.128.0.207  361  latest/stable  skype✓     -
 ```
 
 
