@@ -11,6 +11,5 @@
   /sys/devices/*/*/*/net/*/speed r,
   /proc/*/net/wireless r,
   /etc/vulkan/implicit_layer.d/ r,
-  /etc/vulkan/implicit_layer.d/ r,
   /etc/vulkan/explicit_layer.d/ r,
   /etc/issue r,
