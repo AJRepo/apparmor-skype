@@ -1,11 +1,11 @@
-diff --git a/backup/snap.skype.skype.20241011200829 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index 8c0baca..abd290d 100644
---- a/backup/snap.skype.skype.20241011200829
+diff --git a/./backup//snap.skype.skype.20241014201615 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index d7b7822..7da919d 100644
+--- a/./backup//snap.skype.skype.20241014201615
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2790,4 +2790,20 @@ dbus (send, receive)
-deny ptrace (trace),
-deny capability sys_ptrace,
-
+@@ -2792,4 +2792,19 @@ dbus (send, receive)
+ deny ptrace (trace),
+ deny capability sys_ptrace,
+ 
 +  #The following lines added from github.com/AJRepo/apparmor-skype
 +  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
 +  /sys/devices/virtual/dmi/id/board_vendor r,
@@ -21,5 +21,5 @@ deny capability sys_ptrace,
 +  /etc/vulkan/implicit_layer.d/ r,
 +  /etc/vulkan/explicit_layer.d/ r,
 +  /etc/issue r,
-+
-}
+ }
+
