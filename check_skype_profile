@@ -31,7 +31,7 @@ if [[ $1 == "--help" ]]; then
 fi
 
 if [ -x "$NOTIFY" ] ; then
-  NOTIFY="$NOTIFY --app-name='apparmor-skype' --urgency=critical"
+  NOTIFY="$NOTIFY --app-name='apparmor-skype' --urgency=normal --expire-time=900000"
 elif which wall; then
   NOTIFY=$(which wall)
 else
