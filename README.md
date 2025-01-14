@@ -1,4 +1,3 @@
-
 # apparmor-skype
 
 Apparmor profile for skypeforlinux
@@ -20,7 +19,7 @@ the errors.
 
 This repository is for overriding the snap provided file and instructions.
 
-# Installation
+## Installation
 
 1. Backup your old apparmor profile in case something goes wrong
 
@@ -30,7 +29,7 @@ This repository is for overriding the snap provided file and instructions.
    code from snap.skype.skype.add
    right above the closing curly bracket`}` e.g.
 
-   ```
+   ```bash
     /sys/devices/*/*/*/*/*/online r,
     /sys/devices/*/*/*/power_supply/* r,
     /etc/issue r,
@@ -57,7 +56,7 @@ This repository is for overriding the snap provided file and instructions.
 
    See "Monitoring for Skype Profile Changes" below.
 
-# Bash Scripts for Installation
+## Bash Scripts for Installation
 
 There are two scripts to do steps 0-3 above.
 
@@ -72,7 +71,7 @@ At some point these two scripts might be merged or one of them deprecated.
 
 Both of these scripts should be considered to be in RC-1 status.
 
-# Recovery
+## Recovery
 
 If you've done something wrong with /var/lib/snapd/apparmor/profiles
  (e.g. didn't backup first and now skype won't start)
@@ -80,13 +79,13 @@ If you've done something wrong with /var/lib/snapd/apparmor/profiles
 
 1. Create a snapshot of the existing data (includes the skype username, chats, etc.)
 
-```
+```bash
 sudo snap save skype
 ```
 
 You'll get something like
 
-```
+```bash
 Set  Snap   Age    Version      Rev  Size    Notes
 9    skype  7.58s  8.106.0.212  306  56.5MB  -
 ```
@@ -95,13 +94,13 @@ Note that `Set` number you get above (in this case it is = 9)
 
 Note that you can see the list of saved snapshots with
 
-```
+```bash
 sudo snap saved skype
 ```
 
 1. Remove skype without any other flags and restore the snapshot you made.
 
-```
+```bash
 sudo snap remove skype
 sudo snap install skype
 sudo snap restore XXXX
@@ -118,7 +117,7 @@ you can delete it with
 
 `snap forget 9`
 
-# Monitoring for Skype Profile Changes
+## Monitoring for Skype Profile Changes
 
 For some reason, the skype apparmor setting will revert to the default. If this happens
 then you will again have too many reports in your systlog.
@@ -136,14 +135,14 @@ run as the user who will be logged into the system and not root.
 When adding it to your cron, make sure you set the path correctly. Example:
 <!-- markdownlint-disable MD013 -->
 
-```
+```bash
 #Cron.d script
 #Run every hour at 14 minutes past the hour
 #Replace MY_USER_NAME and MY_USER_ID as appropriate
 14 * * * * MY_USER_NAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/MY_USER_ID/bus /PATH/TO/apparmor-skype/check_skype_profile
 ```
 
-# Notes for Debian 12
+## Notes for Debian 12
 
 Some versions of Linux have an apparmor issue vs the default skype apparmor
 configuration. If you are running that verison of Linux then you might get
@@ -155,7 +154,7 @@ the following error:
 
 This issue is related to snap's apparmor config, and the line in that file:
 
-```
+```bash
 `userns,`
 ```
 
@@ -167,11 +166,11 @@ It appears that `allow userns create,` is the recommended replacement which requ
 
 See: <https://gitlab.com/apparmor/apparmor/-/wikis/unprivileged_userns_restriction>
 
-# Tests
+## Tests
 
 Tested with Skype versions (from `snap list skype`)
 
-```
+```bash
 Name   Version      Rev  Tracking       Publisher  Notes
 skype  8.106.0.210  305  latest/stable  skype✓     -
 skype  8.106.0.212  306  latest/stable  skype✓     -
