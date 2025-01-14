@@ -133,7 +133,6 @@ run as the user who will be logged into the system and not root.
 (e.g. In the below crontab, replace `MY_USER_NAME` and `MY_USER_ID` respectively)
 
 When adding it to your cron, make sure you set the path correctly. Example:
-<!-- markdownlint-disable MD013 -->
 
 ```bash
 #Cron.d script
@@ -142,29 +141,31 @@ When adding it to your cron, make sure you set the path correctly. Example:
 14 * * * * MY_USER_NAME DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/MY_USER_ID/bus /PATH/TO/apparmor-skype/check_skype_profile
 ```
 
-## Notes for Debian 12
+## Compatibility Notes: parser errors
 
-Some versions of Linux have an apparmor issue vs the default skype apparmor
-configuration. If you are running that verison of Linux then you might get
+Some versions of Linux have an apparmor issue using the default skype apparmor
+configuration. If you are running that verison of Linux, you can get
 the following error:
 
 `AppArmor parser error for /var/lib/snapd/apparmor/profiles/snap.skype.skype
  in profile /var/lib/snapd/apparmor/profiles/snap.skype.skype at line 2558:
  syntax error, unexpected TOK_END_OF_RULE, expecting TOK_MODE`
 
-This issue is related to snap's apparmor config, and the line in that file:
+This issue is related to snap's apparmor config. Specifically it is this
+line in that file:
 
 ```bash
 `userns,`
 ```
 
 Changing that line to `userns w,` or commenting it out
-makes the apparmor error go away. Which is best is unclear as there
+makes the apparmor error go away. Which is best? It is unclear to me as there
 is limited documentation about `userns` in apparmor documentation.
 
-It appears that `allow userns create,` is the recommended replacement which requires
+The apparmor documentation seems to suggest that `allow userns create,` is the recommended replacement.
 
 See: <https://gitlab.com/apparmor/apparmor/-/wikis/unprivileged_userns_restriction>
+for more information.
 
 ## Tests
 
