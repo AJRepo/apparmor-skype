@@ -19,7 +19,11 @@ the errors.
 
 This repository is for overriding the snap provided file and instructions.
 
-## Installation
+## Manual Installation
+
+This is for those who don't want to use a script to do the installation for you.
+If you want a script to automate this part, skip this section and go to the section
+titled "Bash Scripts for Installation"
 
 1. Backup your old apparmor profile in case something goes wrong
 
@@ -52,24 +56,37 @@ This repository is for overriding the snap provided file and instructions.
 
       `sudo systemctl restart apparmor.service`
 
-1. (optional) Setup crontab monitoring for snap skype updates.
+You are done!
 
-   See "Monitoring for Skype Profile Changes" below.
+Note: When snap refreshes skype you can lose your changes. See the section
+"Monitoring for Skype Profile Changes" below.
 
 ## Bash Scripts for Installation
 
-There are two scripts to do steps 0-3 above.
+There are two scripts to do the installation for you as well as doing some
+sanity checks on your system and backs up your old configuration file.
 
-* The first is named `update_with_diff.sh`.
+You only need one. Both are provided because I'm testing which one I might keep.
+
+The two files are:
+
+* `update_with_diff.sh`
   This uses the file `snap.skype.skype.diff` to do the update as above.
 
-* The second is named `update_with_add.sh`. This
-  looks for a '}' as the last line of the skype profile file and
+* `update_with_add.sh`
+  This looks for a '}' as the last line of the skype profile file and
   then replaces it with the contents of the file `snap.skype.skype.add` + '}'
 
 At some point these two scripts might be merged or one of them deprecated.
 
-Both of these scripts should be considered to be in RC-1 status.
+To have a script update and re-apply the apparmor profile just run one of them, i.e.
+
+`sudo ./upodate_with_diff.sh`
+
+and follow the prompts.
+
+Note: When snap refreshes skype you can lose your changes. See the section
+"Monitoring for Skype Profile Changes" below.
 
 ## Recovery
 
@@ -162,7 +179,8 @@ Changing that line to `userns w,` or commenting it out
 makes the apparmor error go away. Which is best? It is unclear to me as there
 is limited documentation about `userns` in apparmor documentation.
 
-The apparmor documentation seems to suggest that `allow userns create,` is the recommended replacement.
+The apparmor documentation seems to suggest that `allow userns create,`
+is the recommended replacement.
 
 See: <https://gitlab.com/apparmor/apparmor/-/wikis/unprivileged_userns_restriction>
 for more information.
