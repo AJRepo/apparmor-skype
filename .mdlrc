@@ -1,4 +1,4 @@
-#disabling rule MD013 since modifying doesn't seem to work
-rules "~MD013"
-rule 'MD013', :ignore_code_blocks == true
-rule 'MD013', :code_blocks == false
+#Can disable rule MD013 with the following
+#rules "~MD013"
+#for some reason, can't include styles in .mdlrc and need additional file?
+style '.mdl_style.rb'
