@@ -1,26 +1,22 @@
-diff --git a/./backup//snap.skype.skype.20241014201615 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-index d7b7822..7da919d 100644
---- a/./backup//snap.skype.skype.20241014201615
+diff --git a/./backup//snap.skype.skype.20250130103225 b/var/lib/snapd/apparmor/profiles/snap.skype.skype
+index 303d9bd..1b9b612 100644
+--- a/./backup//snap.skype.skype.20250130103225
 +++ b/var/lib/snapd/apparmor/profiles/snap.skype.skype
-@@ -2792,4 +2792,19 @@ dbus (send, receive)
+@@ -2986,4 +2986,17 @@ deny /var/lib/snapd/desktop/applications/skype_skypeforlinux-shar[^e]**.desktop
  deny ptrace (trace),
  deny capability sys_ptrace,
  
-+  #The following lines added from github.com/AJRepo/apparmor-skype
-+  #/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
-+  /sys/devices/virtual/dmi/id/board_vendor r,
-+  /sys/devices/virtual/dmi/id/chassis_type r,
-+  /sys/devices/*/*/*/*/*/online r,
-+  /sys/devices/*/*/*/*/*/*/online r,
-+  /sys/devices/*/*/*/power_supply/* r,
-+  /sys/devices/*/*/*/power_supply/BAT0/capacity r,
-+  /sys/devices/*/*/power_supply/*/* r,
-+  /sys/devices/*/net/*/speed r,
-+  /sys/devices/*/*/net/*/speed r,
-+  /sys/devices/*/*/*/net/*/speed r,
-+  /proc/*/net/wireless r,
-+  /etc/vulkan/implicit_layer.d/ r,
-+  /etc/vulkan/explicit_layer.d/ r,
-+  /etc/issue r,
++#The following lines added from github.com/AJRepo/apparmor-skype
++#/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC/online r,
++/sys/devices/virtual/dmi/id/board_vendor r,
++/sys/devices/virtual/dmi/id/chassis_type r,
++/sys/devices/**/online r,
++/sys/devices/**/power_supply/* r,
++/sys/devices/**/power_supply/BAT0/capacity r,
++/sys/devices/**/power_supply/*/* r,
++/sys/devices/**/net/*/speed r,
++/proc/*/net/wireless r,
++/etc/vulkan/implicit_layer.d/ r,
++/etc/vulkan/explicit_layer.d/ r,
++/etc/issue r,
  }
-
