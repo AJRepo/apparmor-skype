@@ -137,7 +137,7 @@ you can delete it with
 ## Monitoring for Skype Profile Changes
 
 For some reason, the skype apparmor setting will revert to the default. If this happens
-then you will again have too many reports in your systlog.
+then you will again have too many reports in your syslog.
 
 The file `check_skype_profile` is a bash script
 which checks if the apparmor script has
