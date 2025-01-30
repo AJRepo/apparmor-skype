@@ -3,6 +3,7 @@
   /sys/devices/virtual/dmi/id/board_vendor r,
   /sys/devices/virtual/dmi/id/chassis_type r,
   /sys/devices/*/*/*/*/*/online r,
+  /sys/devices/*/*/*/*/*/*/online r,
   /sys/devices/*/*/*/power_supply/* r,
   /sys/devices/*/*/*/power_supply/BAT0/capacity r,
   /sys/devices/*/*/power_supply/*/* r,
