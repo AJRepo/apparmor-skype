@@ -217,6 +217,7 @@ skype  8.130.0.205  368  latest/stable  skype✓     -
 skype  8.131.0.202  370  latest/stable  skype✓     -
 skype  8.133.0.202  375  latest/stable  skype✓     -
 skype  8.134.0.202  378  latest/stable  skype✓     -
+skype  8.136.0.202  380  latest/stable  skype✓     -
 ```
 
 Copyright AJRepo 2023
